@@ -1,9 +1,21 @@
 type Query {
     users: [User!]!
     userById(id: ID!): User
+    login(username: String!, password: String!): CurrentUser
+    currentUser: CurrentUser
+}
+
+type Mutation {
+    logout: Boolean!
 }
 
 type User {
+    id: ID!
+    username: String!
+    email: String!
+}
+
+type CurrentUser {
     id: ID!
     username: String!
     email: String!
